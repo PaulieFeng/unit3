@@ -5,22 +5,24 @@ color brown=#FF7C00;
 color pink=#FF93A7;
 
 
-float sliderX;
+float sliderY;
 float shade=0;
+float linewidth=0;
 
 void setup(){
   size(800,600);
-  strokeWeight(5);
+  strokeWeight(linewidth);
   stroke(pink);
   fill(pink);
-  sliderX=400;
+  sliderY=400;
 }
 
+
 void draw(){
-  background(0);
-  
-  line(100,300,700,300);
-  circle(sliderX,300,50);
+  background(shade);
+  strokeWeight(linewidth);
+  line(400,100,400,500);
+  circle(400,sliderY,50);
 }
 
 
@@ -35,7 +37,9 @@ void mouseReleased(){
 
 
 void controlslider(){
-  if(mouseX>100 && mouseX<700 && mouseY>275 && mouseY<325){
-    sliderX=mouseX;
+  if(mouseX>300 && mouseX<500 && mouseY>100 && mouseY<500){
+    sliderY=mouseY;
   }
+  shade=map(sliderY,100,500,0,255);
+  linewidth=map(sliderY,100,600,0,15);
 }
