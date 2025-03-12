@@ -36,7 +36,7 @@ void draw(){
   ////NEW, LOAD, SAVE BOTTON///////////////////////
   strokeWeight(5);
   stroke(black);
-  rect(0,0,1000,200);
+
   rect(525,150,50,20);
   // linewidth control//////////////////////////
   stroke(selectColor);
@@ -103,6 +103,9 @@ if(dist(x,y,mouseX,mouseY)<r){
 
 void mouseReleased() {
   controlslider();
+  if (mouseX>10 && mouseX<60 && mouseY>490 && mouseY<515){
+  background (white);
+}
      if(dist(50,50,mouseX,mouseY)<50){
     selectColor=red;
   }
@@ -135,4 +138,3 @@ void controlslider(){
 
 
 //////////////////////////new button//////////////////////////
-if(mouseX>10 &&)
