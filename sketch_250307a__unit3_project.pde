@@ -36,8 +36,8 @@ void draw(){
   ////NEW, LOAD, SAVE BOTTON///////////////////////
   strokeWeight(5);
   stroke(black);
-
-  rect(525,150,50,20);
+  fill(red);
+  rect(825,25,100,20);
   // linewidth control//////////////////////////
   stroke(selectColor);
   strokeWeight(linewidth);
@@ -124,6 +124,11 @@ void mouseReleased() {
   if(dist(250,150,mouseX,mouseY)<50){
     selectColor=orange;
   }
+  
+  //new button
+  if(mouseX>825 && mouseX<925 && mouseY>25 && mouseY<45){
+  background(white);
+}
   
 }//end of mouseReleased ======================================================
 
