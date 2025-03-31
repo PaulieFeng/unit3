@@ -38,6 +38,11 @@ void draw(){
   stroke(black);
   fill(red);
   rect(825,25,100,20);
+  fill(green);
+  rect(825,75,100,20);
+  fill(blue);
+  rect(825,125,100,20);
+  
   // linewidth control//////////////////////////
   stroke(selectColor);
   strokeWeight(linewidth);
@@ -129,10 +134,30 @@ void mouseReleased() {
   if(mouseX>825 && mouseX<925 && mouseY>25 && mouseY<45){
   background(white);
 }
-  
+// load button
+  if(mouseX>825 && mouseX<925 && mouseY>75 && mouseY<95){
+  selectInput("Pick an image to load", "openImage");
+}
+// save button
+  if(mouseX>825 && mouseX<925 && mouseY>125 && mouseY<145){
+  selectOutput("Choose a name for your new image file", "openImage");
+}  
 }//end of mouseReleased ======================================================
-
-
+void saveImage(File f){
+  if(f!=null){
+    PImage canvas = get(71,1,width-71, height-1);
+    canvas.save(f.getAbsolutePath());
+  }
+void openImage(File f) {
+  if(f!=null){
+    int n=0;
+    while (n<10){
+      PImage pic = loadImage(f.getPath());
+      image(pic,0,0);
+      n=n+1;
+    }
+  }
+}
 void controlslider(){
   if(mouseX>350 && mouseX<750 && mouseY>75 && mouseY<125){
     sliderX=mouseX;
@@ -140,6 +165,3 @@ void controlslider(){
  
   linewidth=map(sliderX,350,750,0,50);
 }
-
-
-//////////////////////////new button//////////////////////////
