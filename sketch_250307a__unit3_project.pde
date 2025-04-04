@@ -10,7 +10,7 @@ color selectColor;
 
 float sliderX;
 float linewidth=0;
-
+PImage apple;
 
 void setup(){
   size(1000,800);
@@ -18,9 +18,8 @@ void setup(){
   strokeWeight(5);
   stroke(black);
   selectColor=black;
-  
   sliderX=400;
-  
+  apple=loadImage("apple.png");
   
 }//end of set ==============================================================
 
@@ -33,6 +32,7 @@ void draw(){
   rect(0,0,1000,200);
   fill(selectColor);
   rect(525,150,50,20);
+  image(apple,100,100);
   ////NEW, LOAD, SAVE BOTTON///////////////////////
   strokeWeight(5);
   stroke(black);
@@ -148,10 +148,11 @@ void saveImage(File f){
     PImage canvas = get(71,1,width-71, height-1);
     canvas.save(f.getAbsolutePath());
   }
+}
 void openImage(File f) {
   if(f!=null){
     int n=0;
-    while (n<10){
+    while (n<100){
       PImage pic = loadImage(f.getPath());
       image(pic,0,0);
       n=n+1;
